@@ -29,7 +29,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 
 def analyze_ai(system_prompt, user_msg):
     completion = client.chat.completions.create(
-        model="​mixtral-8x7b-32768",
+        model="​qwen/qwen3.6-27b",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_msg}
