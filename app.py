@@ -24,12 +24,12 @@ def fetch_intelligence_data(query):
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     bin_str = base64.b64encode(bin_file.encode()).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_label}.txt" style="text-decoration:none;"><button style="width:100%; background-color:#2ecc71; color:white; border-radius:5px; border:none; padding:10px; font-weight:bold;">💾 SIMPAN LAPORAN INTELIJEN</button></a>'
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_label}.txt" style="text-decoration:none;"><button style="width:100%; background-color:#2ecc71; color:white; border-radius:5px; border:none; padding:10px; font-weight:bold;">SIMPAN LAPORAN INTELIJEN</button></a>'
     return href
 
 def analyze_ai(system_prompt, user_msg):
     completion = client.chat.completions.create(
-        model="openai/gpt-oss-120b",
+        model="llama-3.1-70b-versatile",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_msg}
@@ -47,14 +47,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.title("⚖️ Panopticon Engine")
+    st.title("Panopticon Engine")
     mode = st.radio("Operasi:", ["Private War Room", "Public Intelligence Radar"])
     st.markdown("---")
     st.info("Isu publik adalah medan perang persepsi.")
 
 # MODE 1
 if mode == "Private War Room":
-    st.header("🌑 Private Strategic War Room")
+    st.header(" Private Strategic War Room")
     col1, col2 = st.columns([1, 1])
     
     with col1:
@@ -105,8 +105,8 @@ Jangan skip urutan ini. Taktik tanpa grounding psikologis adalah taktik buta.
 
 # MODE 2
 else:
-    st.header("🌐 Public Intelligence Radar")
-    tab1, tab2 = st.tabs(["🕵️ Social Narrative Scanner", "🔍 Framing Forensic"])
+    st.header("Public Intelligence Radar")
+    tab1, tab2 = st.tabs([" Social Narrative Scanner", "🔍 Framing Forensic"])
 
     with tab1:
         st.subheader("Automated Cross-Platform Scan")
